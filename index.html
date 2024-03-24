@@ -33,6 +33,34 @@
             <div class="load"></div>
         </div>
    </div>
+   <style>
+  #progressBar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    position: relative;
+  }
+  #progressBar .progress {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+  }
+</style>
+
+</head>
+<body>
+  <div id="progressBar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <button onclick="toggleShuffle()">Shuffle</button>
+  <button onclick="toggleRepeat()">Repeat</button>
+
+  <script>
+    let duration = 300; // Duration of the track in seconds
+    let currentTime = 0; // Current time of the track in seconds
+    let isShuffle = false; // Flag to indicate shuffle mode
+    let isRepeat = false; // Flag to indicate repeat mode
     <div class="loader">
         <div class="song">
         <p class="name">My Way</p>
