@@ -61,6 +61,51 @@
     let currentTime = 0; // Current time of the track in seconds
     let isShuffle = false; // Flag to indicate shuffle mode
     let isRepeat = false; // Flag to indicate repeat mode
+  
+    // Update progress bar
+    function updateProgress() {
+      let progress = (currentTime / duration) * 100;
+      document.getElementById("progress").style.width = progress + "%";
+    }
+
+    // Update progress every second
+    setInterval(function() {
+      if (currentTime < duration) {
+        currentTime++;
+        updateProgress();
+      } else {
+        // Reset currentTime if repeat mode is on
+        if (isRepeat) {
+          currentTime = 0;
+        } else {
+          // Stop updating progress if repeat mode is off
+          clearInterval();
+        }
+      }
+    }, 1000);
+
+    // Function to toggle shuffle mode
+    function toggleShuffle() {
+      isShuffle = !isShuffle;
+      if (isShuffle) {
+        // Add logic for shuffling tracks
+        console.log("Shuffle mode is on");
+      } else {
+        // Add logic for disabling shuffle mode
+        console.log("Shuffle mode is off");
+      }
+    }
+
+    // Function to toggle repeat mode
+    function toggleRepeat() {
+      isRepeat = !isRepeat;
+      if (isRepeat) {
+        console.log("Repeat mode is on");
+      } else {
+        console.log("Repeat mode is off");
+      }
+
+
     <div class="loader">
         <div class="song">
         <p class="name">My Way</p>
