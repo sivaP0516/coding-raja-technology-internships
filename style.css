@@ -139,6 +139,27 @@
    }
    
 }
+var audio = document.getElementById("myAudio");
+
+function playAudio() {
+    audio.play();
+}
+
+function pauseAudio() {
+    audio.pause();
+}
+
+function nextTrack() {
+    // Implement logic to play the next track
+}
+
+function previousTrack() {
+    // Implement logic to play the previous track
+}
+
+function changeVolume(volume) {
+    audio.volume = volume;
+}
 
 
 
