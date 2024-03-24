@@ -194,6 +194,67 @@
       }
     }
   </script>
+  <script>
+    let duration = 300; // Duration of the track in seconds
+    let currentTime = 0; // Current time of the track in seconds
+    let isShuffle = false; // Flag to indicate shuffle mode
+    let isRepeat = false; // Flag to indicate repeat mode
+
+    // Update progress bar and timing
+    function updateProgress() {
+      let progress = (currentTime / duration) * 100;
+      document.getElementById("progress").style.width = progress + "%";
+
+      let currentMinutes = Math.floor(currentTime / 60);
+      let currentSeconds = currentTime % 60;
+      let totalMinutes = Math.floor(duration / 60);
+      let totalSeconds = duration % 60;
+
+      // Formatting the time
+      let currentTimeString = currentMinutes + ":" + (currentSeconds < 10 ? "0" : "") + currentSeconds;
+      let durationTimeString = totalMinutes + ":" + (totalSeconds < 10 ? "0" : "") + totalSeconds;
+
+      document.getElementById("timing").innerText = currentTimeString + " / " + durationTimeString;
+    }
+
+    // Update progress every second
+    setInterval(function() {
+      if (currentTime < duration) {
+        currentTime++;
+        updateProgress();
+      } else {
+        // Reset currentTime if repeat mode is on
+        if (isRepeat) {
+          currentTime = 0;
+        } else {
+          // Stop updating progress if repeat mode is off
+          clearInterval();
+        }
+      }
+    }, 1000);
+
+    // Function to toggle shuffle mode
+    function toggleShuffle() {
+      isShuffle = !isShuffle;
+      if (isShuffle) {
+        // Add logic for shuffling tracks
+        console.log("Shuffle mode is on");
+      } else {
+        // Add logic for disabling shuffle mode
+        console.log("Shuffle mode is off");
+      }
+    }
+
+    // Function to toggle repeat mode
+    function toggleRepeat() {
+      isRepeat = !isRepeat;
+      if (isRepeat) {
+        console.log("Repeat mode is on");
+      } else {
+        console.log("Repeat mode is off");
+      }
+    }
+  </script>
 </body>
 </html>    
 
