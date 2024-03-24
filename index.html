@@ -325,6 +325,36 @@
       console.log("Playing next song:", songs[currentSongIndex]);
     }
   </script>
+
+      <script>
+    // Replace these with your actual Spotify API credentials
+    const CLIENT_ID = 'YOUR_CLIENT_ID';
+    const REDIRECT_URI = 'YOUR_REDIRECT_URI';
+    const SCOPES = 'user-read-playback-state user-modify-playback-state';
+
+    // Function to authorize Spotify user
+    function authorize() {
+      const url = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URI}&scope=${SCOPES}`;
+      window.location.href = url;
+    }
+
+    // Function to play the current song
+    function play() {
+      // Make a request to the Spotify API to play the current song
+    }
+
+    // Function to pause the current song
+    function pause() {
+      // Make a request to the Spotify API to pause the current song
+    }
+
+    // Function to play the next song
+    function nextSong() {
+      // Make a request to the Spotify API to play the next song
+    }
+  </script>
+
+
 </body>
 </html>    
 
