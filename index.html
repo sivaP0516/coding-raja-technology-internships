@@ -106,6 +106,94 @@
       }
   }
   </script>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  #progressBar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    position: relative;
+  }
+  #progressBar .progress {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+  }
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .btn-container button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+</style>
+</head>
+<body>
+  <div id="progressBar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <div class="btn-container">
+    <button onclick="toggleShuffle()">Shuffle</button>
+    <button onclick="toggleRepeat()">Repeat</button>
+  </div>
+
+  <script>
+    let duration = 300; // Duration of the track in seconds
+    let currentTime = 0; // Current time of the track in seconds
+    let isShuffle = false; // Flag to indicate shuffle mode
+    let isRepeat = false; // Flag to indicate repeat mode
+
+    // Update progress bar
+    function updateProgress() {
+      let progress = (currentTime / duration) * 100;
+      document.getElementById("progress").style.width = progress + "%";
+    }
+
+    // Update progress every second
+    setInterval(function() {
+      if (currentTime < duration) {
+        currentTime++;
+        updateProgress();
+      } else {
+        // Reset currentTime if repeat mode is on
+        if (isRepeat) {
+          currentTime = 0;
+        } else {
+          // Stop updating progress if repeat mode is off
+          clearInterval();
+        }
+      }
+    }, 1000);
+
+    // Function to toggle shuffle mode
+    function toggleShuffle() {
+      isShuffle = !isShuffle;
+      if (isShuffle) {
+        // Add logic for shuffling tracks
+        console.log("Shuffle mode is on");
+      } else {
+        // Add logic for disabling shuffle mode
+        console.log("Shuffle mode is off");
+      }
+    }
+
+    // Function to toggle repeat mode
+    function toggleRepeat() {
+      isRepeat = !isRepeat;
+      if (isRepeat) {
+        console.log("Repeat mode is on");
+      } else {
+        console.log("Repeat mode is off");
+      }
+    }
+  </script>
 </body>
 </html>    
 
