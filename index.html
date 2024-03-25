@@ -393,7 +393,25 @@
 <input type="range" min="0" max="1" step="0.1" value="1" onchange="changeVolume(this.value)">
 
 </div>
+<!-- Countdown Timer -->
+    <div id="countdown">0:00</div>
+  </div>
 
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const countdownDisplay = document.getElementById('countdown');
+
+    // Function to update countdown timer
+    function updateCountdown() {
+      const remainingTime = audioPlayer.duration - audioPlayer.currentTime;
+      const minutes = Math.floor(remainingTime / 60);
+      const seconds = Math.floor(remainingTime % 60);
+      countdownDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    // Update countdown every second
+    audioPlayer.addEventListener('timeupdate', updateCountdown);
+  </script>
 
 
 
