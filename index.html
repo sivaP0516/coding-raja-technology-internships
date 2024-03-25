@@ -340,17 +340,23 @@
 
     // Function to play the current song
     function play() {
-      // Make a request to the Spotify API to play the current song
+      console.log("Playing:", songs[currentSongIndex]);
     }
 
     // Function to pause the current song
     function pause() {
-      // Make a request to the Spotify API to pause the current song
+      console.log("Pausing:", songs[currentSongIndex]);
     }
 
     // Function to play the next song
     function nextSong() {
-      // Make a request to the Spotify API to play the next song
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      console.log("Playing next song:", songs[currentSongIndex]);
+    }
+    // Function to play the previous song
+    function previousSong() {
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      console.log("Playing previous song:", songs[currentSongIndex]);
     }
   </script>
 
